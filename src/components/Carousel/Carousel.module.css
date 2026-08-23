@@ -1,0 +1,21 @@
+.carousel {
+  position: relative;
+  width: 100% !important;
+}
+.crp {
+  cursor: pointer;
+  top: 34%;
+  position: absolute;
+  z-index: 2;
+}
+.crn {
+  cursor: pointer;
+  bottom: 50%;
+  position: absolute;
+  right: 13px;
+  z-index: 2;
+}
+.crp:global(.swiper-button-disabled),
+.crn:global(.swiper-button-disabled) {
+  display: none;
+}
