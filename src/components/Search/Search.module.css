@@ -37,3 +37,19 @@
 .albumArtists {
   font-size: 12px;
 }
+
+@media screen and (max-width: 900px) {
+  .search {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .search {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .search {
+    width: 100px;
+  }
+}
