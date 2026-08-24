@@ -93,7 +93,7 @@ const Section = ({
           <Carousel albumData={albumData} id={id} />
         ) : (
           albumData?.map((album) => (
-            <Grid item key={album?.id} size={{ xs: 1.7 }}>
+            <Grid item key={album?.id} size={{ xs: 6, sm: 3, md: 2, lg: 1.7 }}>
               <MusicCard album={album} />
             </Grid>
           ))
