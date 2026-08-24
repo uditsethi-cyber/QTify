@@ -13,8 +13,20 @@ const Carousel = ({ albumData, id }) => {
     <div className={styles.carousel}>
       <LeftNavigationButton className={`${styles.crp} carousel-prev-${id}`} />
       <Swiper
+        breakpointsBase="window"
         modules={[Navigation]}
-        slidesPerView={7}
+        slidesPerView={2}
+        breakpoints={{
+          600: {
+            slidesPerView: 4,
+          },
+          900: {
+            slidesPerView: 6,
+          },
+          1200: {
+            slidesPerView: 7,
+          },
+        }}
         slidesPerGroup={1}
         spaceBetween={16}
         watchOverflow
