@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import "./App.css";
-import Hero from "./components/Hero/Hero";
+// lazy-load non-critical UI to reduce initial bundle
+const Hero = lazy(() => import("./components/Hero/Hero"));
 import Navbar from "./components/Navbar/Navbar";
 import axios from "axios";
-import Section from "./components/Section/Section";
+const Section = lazy(() => import("./components/Section/Section"));
 import APIURL from "./constants/APIURL";
 import { Box } from "@mui/material";
 
@@ -73,7 +74,10 @@ function App() {
   return (
     <div className="app">
       <Navbar searchData={""} />
-      <Hero />
+      <Suspense fallback={<div />}>
+        <Hero />
+      </Suspense>
+
       <Box
         sx={{
           gap: "2rem",
@@ -82,26 +86,32 @@ function App() {
           backgroundColor: "var(--color-black)",
         }}
       >
-        <Section
-          title={"Top Albums"}
-          albumData={albumData}
-          id={"topalb"}
-          showall
-        />
-        <Section
-          title={"New Albums"}
-          albumData={newAlbumData}
-          id={"newalb"}
-          showall
-        />
-        <Section
-          title={"Songs"}
-          albumData={newAlbumData}
-          id={"songs"}
-          showtabs
-          genres={genres}
-          songs={songs}
-        />
+        <Suspense fallback={<div />}>
+          <Section
+            title={"Top Albums"}
+            albumData={albumData}
+            id={"topalb"}
+            showall
+          />
+        </Suspense>
+        <Suspense fallback={<div />}>
+          <Section
+            title={"New Albums"}
+            albumData={newAlbumData}
+            id={"newalb"}
+            showall
+          />
+        </Suspense>
+        <Suspense fallback={<div />}>
+          <Section
+            title={"Songs"}
+            albumData={newAlbumData}
+            id={"songs"}
+            showtabs
+            genres={genres}
+            songs={songs}
+          />
+        </Suspense>
       </Box>
     </div>
   );

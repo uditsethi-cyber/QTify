@@ -15,9 +15,12 @@ const MusicCard = ({ album }) => {
     >
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia
+          component="img"
           sx={{ height: 170 }}
           image={album?.image}
           title={album?.title}
+          alt={album?.title}
+          loading="lazy"
         />
         <CardContent>
           <Chip

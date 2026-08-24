@@ -9,7 +9,7 @@ function Hero() {
         <h1>Over thousands podcast episodes</h1>
       </div>
       <div>
-        <img src={headphones} width={212} alt="headphones" />
+        <img src={headphones} width={212} alt="headphones" loading="lazy" />
       </div>
     </div>
   );
